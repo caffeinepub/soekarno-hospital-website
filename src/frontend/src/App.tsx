@@ -5,13 +5,17 @@ import {
   Building2,
   CalendarCheck,
   ChevronRight,
+  FlaskConical,
   Heart,
   MapPin,
   Menu,
+  Package,
   Phone,
   Scissors,
   Sparkles,
+  Star,
   Stethoscope,
+  TestTube,
   Users,
   X,
   Zap,
@@ -24,6 +28,12 @@ const NAV_LINKS = [
   { label: "About", href: "#about", ocid: "nav.about.link" },
   { label: "Doctors", href: "#doctors", ocid: "nav.doctors.link" },
   { label: "Services", href: "#services", ocid: "nav.services.link" },
+  { label: "Laboratory", href: "#laboratory", ocid: "nav.laboratory.link" },
+  {
+    label: "Medical Store",
+    href: "#medical-store",
+    ocid: "nav.medical-store.link",
+  },
   { label: "Contact", href: "#contact", ocid: "nav.contact.link" },
 ];
 
@@ -109,6 +119,30 @@ const HIGHLIGHTS = [
     title: "Modern Facilities",
     desc: "State-of-the-art medical equipment and a clean, safe environment.",
   },
+];
+
+const LAB_TESTS = [
+  "Complete Blood Count (CBC)",
+  "Blood Sugar (Fasting & Random)",
+  "Liver Function Tests (LFTs)",
+  "Kidney Function Tests (KFTs)",
+  "Urine Complete Examination",
+  "Thyroid Profile (T3, T4, TSH)",
+  "Hepatitis B & C Screening",
+  "Pregnancy Test (Urine/Blood)",
+  "ESR & CRP",
+  "Culture & Sensitivity",
+];
+
+const PHARMACY_ITEMS = [
+  "Prescription Medicines",
+  "Over-the-Counter Drugs",
+  "Gynecology & Obstetric Medicines",
+  "Pediatric Medicines & Syrups",
+  "Vitamins & Supplements",
+  "Skin Care & Cosmetic Products",
+  "Surgical Supplies & Dressings",
+  "Injections & IV Fluids",
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -303,7 +337,7 @@ export default function App() {
                 data-ocid="hero.appointment.primary_button"
                 onClick={() => handleNavClick("#appointment")}
                 size="lg"
-                className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200"
+                className="bg-white hover:bg-gray-100 text-[#0a1f44] font-semibold px-8 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 <CalendarCheck className="w-4 h-4 mr-2" />
                 Book Your Appointment
@@ -312,7 +346,7 @@ export default function App() {
                 data-ocid="hero.contact.primary_button"
                 onClick={() => handleNavClick("#contact")}
                 size="lg"
-                className="bg-white text-teal hover:bg-sky font-semibold px-8 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200"
+                className="bg-sky-100 hover:bg-sky-200 text-[#0a1f44] font-semibold px-8 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 Contact Us
                 <ChevronRight className="w-4 h-4 ml-1" />
@@ -321,7 +355,7 @@ export default function App() {
                 onClick={() => handleNavClick("#doctors")}
                 size="lg"
                 variant="outline"
-                className="border-white/60 text-white hover:bg-white/15 font-semibold px-8 py-3 text-base"
+                className="border-white text-[#0a1f44] bg-white/90 hover:bg-white font-semibold px-8 py-3 text-base"
               >
                 Meet Our Doctors
               </Button>
@@ -645,6 +679,154 @@ export default function App() {
         </div>
       </section>
 
+      {/* Laboratory Facility Section */}
+      <section id="laboratory" className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+          >
+            <motion.div variants={fadeUp} className="text-center mb-16">
+              <p className="text-indigo-600 font-semibold text-sm tracking-widest uppercase mb-3">
+                On-Site Diagnostics
+              </p>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Laboratory Facility
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Accurate Diagnostics, Fast Results
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              data-ocid="laboratory.card"
+              className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-border max-w-4xl mx-auto"
+            >
+              <div className="bg-gradient-to-r from-indigo-600 to-blue-500 p-6 flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <FlaskConical className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <Badge className="bg-white/20 text-white border-none text-xs mb-1">
+                    Diagnostics
+                  </Badge>
+                  <h3 className="font-display text-2xl font-bold text-white">
+                    In-House Laboratory
+                  </h3>
+                </div>
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Our state-of-the-art on-site laboratory provides fast and
+                  reliable diagnostic testing to support your doctor's clinical
+                  decisions. We use modern equipment and follow strict quality
+                  standards to ensure precise results, often on the same day. No
+                  need to visit a separate lab — everything you need is
+                  available right here at Soekarno Hospital.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {LAB_TESTS.map((test) => (
+                    <div key={test} className="flex items-start gap-2 text-sm">
+                      <span className="mt-1 w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                        <TestTube className="w-3 h-3 text-indigo-600" />
+                      </span>
+                      <span className="text-indigo-800 font-medium">
+                        {test}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <Button
+                  data-ocid="laboratory.appointment.button"
+                  onClick={() => handleNavClick("#appointment")}
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold"
+                >
+                  <CalendarCheck className="w-4 h-4 mr-2" />
+                  Book Lab Test
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Internal Medical Store Section */}
+      <section id="medical-store" className="py-20 md:py-28 bg-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+          >
+            <motion.div variants={fadeUp} className="text-center mb-16">
+              <p className="text-emerald-600 font-semibold text-sm tracking-widest uppercase mb-3">
+                In-House Pharmacy
+              </p>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Internal Medical Store
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Medicines Available On-Site
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              data-ocid="medical-store.card"
+              className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-border max-w-4xl mx-auto"
+            >
+              <div className="bg-gradient-to-r from-emerald-600 to-green-500 p-6 flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Package className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <Badge className="bg-white/20 text-white border-none text-xs mb-1">
+                    Pharmacy
+                  </Badge>
+                  <h3 className="font-display text-2xl font-bold text-white">
+                    Medical Store
+                  </h3>
+                </div>
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  For your convenience, Soekarno Hospital has a fully stocked
+                  in-house medical store located within the hospital premises.
+                  All medicines prescribed by our doctors are readily available
+                  on-site, saving you time and ensuring you receive the correct
+                  medications without delay. Our pharmacy is staffed by trained
+                  professionals who can guide you on proper usage and dosage.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {PHARMACY_ITEMS.map((item) => (
+                    <div key={item} className="flex items-start gap-2 text-sm">
+                      <span className="mt-1 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                        <span className="w-2 h-2 rounded-full bg-emerald-600 block" />
+                      </span>
+                      <span className="text-emerald-800 font-medium">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <Button
+                  data-ocid="medical-store.contact.button"
+                  onClick={() => handleNavClick("#contact")}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold"
+                >
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Visit Our Pharmacy
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Book Appointment CTA Section */}
       <section
         id="appointment"
@@ -833,9 +1015,6 @@ export default function App() {
                 © {new Date().getFullYear()} Soekarno Hospital Mananwala. All
                 rights reserved.
               </p>
-              <p className="text-white/50 text-xs mt-1">
-                Management by Khalid Zubair Ahmed Soekarno
-              </p>
             </div>
 
             <div className="text-center md:text-right">
@@ -855,6 +1034,51 @@ export default function App() {
                   caffeine.ai
                 </a>
               </p>
+            </div>
+          </div>
+
+          {/* Management Credit — Enhanced */}
+          <div className="mt-10 pt-8 border-t border-white/20">
+            <div className="flex flex-col items-center gap-4">
+              {/* Decorative stars row */}
+              <div className="flex items-center gap-3">
+                <span className="block w-16 h-px bg-white/30" />
+                <Star className="w-4 h-4 text-yellow-300" fill="currentColor" />
+                <Star className="w-5 h-5 text-yellow-200" fill="currentColor" />
+                <Star className="w-4 h-4 text-yellow-300" fill="currentColor" />
+                <span className="block w-16 h-px bg-white/30" />
+              </div>
+
+              {/* Label */}
+              <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-semibold">
+                Management By
+              </p>
+
+              {/* Name badge */}
+              <div className="relative inline-flex items-center gap-3 bg-white/10 border border-white/25 rounded-2xl px-8 py-4 backdrop-blur-sm shadow-lg">
+                <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
+                  <Star
+                    className="w-4 h-4 text-yellow-300"
+                    fill="currentColor"
+                  />
+                </div>
+                <p className="font-display font-bold text-2xl sm:text-3xl text-white tracking-wide">
+                  KHALID ZUBAIR AHMED SOEKARNO
+                </p>
+                <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
+                  <Star
+                    className="w-4 h-4 text-yellow-300"
+                    fill="currentColor"
+                  />
+                </div>
+              </div>
+
+              {/* Bottom decorative line */}
+              <div className="flex items-center gap-3">
+                <span className="block w-24 h-px bg-white/20" />
+                <span className="block w-2 h-2 rounded-full bg-white/30" />
+                <span className="block w-24 h-px bg-white/20" />
+              </div>
             </div>
           </div>
         </div>
