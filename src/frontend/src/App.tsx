@@ -739,14 +739,15 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  data-ocid="laboratory.appointment.button"
-                  onClick={() => handleNavClick("#appointment")}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold"
+                {/* Book Lab Test Call Button */}
+                <a
+                  href="tel:03040101234"
+                  data-ocid="laboratory.call.button"
+                  className="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-md shadow transition-all duration-200 text-base"
                 >
-                  <CalendarCheck className="w-4 h-4 mr-2" />
-                  Book Lab Test
-                </Button>
+                  <Phone className="w-4 h-4" />
+                  Book Your Lab Test: 0304-0101234
+                </a>
               </div>
             </motion.div>
           </motion.div>
@@ -813,14 +814,14 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  data-ocid="medical-store.contact.button"
-                  onClick={() => handleNavClick("#contact")}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold"
+                <a
+                  href="tel:03006316378"
+                  data-ocid="medical-store.call.button"
+                  className="flex items-center justify-center gap-2 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-md shadow transition-all duration-200 text-base"
                 >
-                  <MapPin className="w-4 h-4 mr-2" />
-                  Visit Our Pharmacy
-                </Button>
+                  <Phone className="w-4 h-4" />
+                  Visit Our Pharmacy: 0300-6316378
+                </a>
               </div>
             </motion.div>
           </motion.div>
