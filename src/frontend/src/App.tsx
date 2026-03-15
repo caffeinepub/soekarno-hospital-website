@@ -1038,46 +1038,40 @@ export default function App() {
           </div>
 
           {/* Management Credit — Enhanced */}
-          <div className="mt-10 pt-8 border-t border-white/20">
+          <div className="mt-10 pt-8 border-t border-red-400 bg-red-600 rounded-2xl px-6 py-8">
             <div className="flex flex-col items-center gap-4">
               {/* Decorative stars row */}
               <div className="flex items-center gap-3">
-                <span className="block w-16 h-px bg-white/30" />
-                <Star className="w-4 h-4 text-yellow-300" fill="currentColor" />
-                <Star className="w-5 h-5 text-yellow-200" fill="currentColor" />
-                <Star className="w-4 h-4 text-yellow-300" fill="currentColor" />
-                <span className="block w-16 h-px bg-white/30" />
+                <span className="block w-16 h-px bg-red-200" />
+                <Star className="w-4 h-4 text-white" fill="currentColor" />
+                <Star className="w-5 h-5 text-white" fill="currentColor" />
+                <Star className="w-4 h-4 text-white" fill="currentColor" />
+                <span className="block w-16 h-px bg-red-200" />
               </div>
 
               {/* Label */}
-              <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-semibold">
+              <p className="text-red-100 text-xs tracking-[0.3em] uppercase font-semibold">
                 Management By
               </p>
 
               {/* Name badge */}
-              <div className="relative inline-flex items-center gap-3 bg-white/10 border border-white/25 rounded-2xl px-8 py-4 backdrop-blur-sm shadow-lg">
-                <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                  <Star
-                    className="w-4 h-4 text-yellow-300"
-                    fill="currentColor"
-                  />
+              <div className="relative inline-flex items-center gap-3 bg-red-700 border border-red-400 rounded-2xl px-8 py-4 backdrop-blur-sm shadow-lg">
+                <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0">
+                  <Star className="w-4 h-4 text-white" fill="currentColor" />
                 </div>
                 <p className="font-display font-bold text-2xl sm:text-3xl text-white tracking-wide">
                   KHALID ZUBAIR AHMED SOEKARNO
                 </p>
-                <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                  <Star
-                    className="w-4 h-4 text-yellow-300"
-                    fill="currentColor"
-                  />
+                <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0">
+                  <Star className="w-4 h-4 text-white" fill="currentColor" />
                 </div>
               </div>
 
               {/* Bottom decorative line */}
               <div className="flex items-center gap-3">
-                <span className="block w-24 h-px bg-white/20" />
-                <span className="block w-2 h-2 rounded-full bg-white/30" />
-                <span className="block w-24 h-px bg-white/20" />
+                <span className="block w-24 h-px bg-red-400" />
+                <span className="block w-2 h-2 rounded-full bg-red-300" />
+                <span className="block w-24 h-px bg-red-400" />
               </div>
             </div>
           </div>
